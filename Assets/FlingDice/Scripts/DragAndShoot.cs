@@ -47,6 +47,7 @@ public class DragAndShoot : MonoBehaviour
         {
             return;
         }
+        rb.isKinematic = false;
         rb.AddForce(new Vector3(Force.x, Force.y, Force.magnitude) * forceMultiplier);
         rb.AddTorque(transform.up * shootpowerRotation, ForceMode.Impulse);
         rb.AddTorque(transform.right * shootpowerRotation, ForceMode.Impulse);

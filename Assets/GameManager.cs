@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public int total_starting_units = 3;
+    public int total_starting_units = 10;
     public static int total_a_units = 0;
     public static int total_b_units = 0;
     public static int total_c_units = 0;
