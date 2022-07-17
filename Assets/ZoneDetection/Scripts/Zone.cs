@@ -34,7 +34,19 @@ public class Zone : MonoBehaviour
 
                 //you must run FindtopSide() to determine the topside
                 //it returns a transform, so you can directly call its name
-                Debug.Log(d6.FindTopside().name);
+
+
+
+                //Material mat = other.material;
+                MeshRenderer mr = other.GetComponent<MeshRenderer>();
+
+
+                string matName = Helper.GetUntilOrEmpty(mr.material.name, "(");
+
+                Debug.Log( matName.Trim() + ": " + d6.FindTopside().name);
+                //Debug.Log(other.gameObject.name + "( " + matName + ") / " + d6.FindTopside().name);
+
+
                 d6.PerformedAction = true;
                 ForceField.currentlyTrapping = false;
 
@@ -69,5 +81,24 @@ public class Zone : MonoBehaviour
         {
             transform.parent.gameObject.GetComponent<Renderer>().material.SetColor("_Color", original_color);
         }
+    }
+
+
+}
+static class Helper
+{
+    public static string GetUntilOrEmpty(this string text, string stopAt = "(")
+    {
+        if (!String.IsNullOrWhiteSpace(text))
+        {
+            int charLocation = text.IndexOf(stopAt, StringComparison.Ordinal);
+
+            if (charLocation > 0)
+            {
+                return text.Substring(0, charLocation);
+            }
+        }
+
+        return String.Empty;
     }
 }
