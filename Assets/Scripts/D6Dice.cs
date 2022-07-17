@@ -62,6 +62,8 @@ public class D6Dice : MonoBehaviour
     void Update()
     {
         diceVelocity = rb.velocity;
+        FindTopside();
+        MeBug(top.name);
     }
 
     public Transform FindTopside()
