@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ShipMapMvp.unity
     guid: 8204ab7896e76d541a8b79635aeda994
+  - enabled: 1
+    path: Assets/Scenes/ShipCopy.unity
+    guid: 34b7842727f86e94b83935c40c9e4a82
   m_configObjects: {}
