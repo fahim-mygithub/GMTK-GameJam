@@ -40,10 +40,10 @@ public class AggroBehavior : MonoBehaviour
 
     private void Attack()
     {
-        if (atkCooldown <= 0 && distance <= 1.5f)
+        if (atkCooldown <= 0 && distance <= unitStats.atkRange)
         {
-            aggroUnit.UpdateHealth(-1);
-            atkCooldown = 1; 
+            aggroUnit.UpdateHealth(-unitStats.atkDmg);
+            atkCooldown = unitStats.atkSpeed; 
         }
     }
 
@@ -71,11 +71,7 @@ public class AggroBehavior : MonoBehaviour
         } else
         {
             distance = Vector3.Distance(aggroTarget.position, transform.position);
-            // navAgent.stoppingDistance = (unitStats.atkRange + 1);
-            navAgent.stoppingDistance = (1.5f);
-            print("Printing unit stats!");
-            // print(unitStats);
-            // if (distance <= unitStats.aggroRange)
+            navAgent.stoppingDistance = (unitStats.atkRange);
             if (distance <= 100)
             {
                 navAgent.SetDestination(aggroTarget.position);

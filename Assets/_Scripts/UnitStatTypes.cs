@@ -7,6 +7,6 @@ public class UnitStatTypes : ScriptableObject
     [System.Serializable]
     public class Base
     {
-        public float aggroRange, atkRange, attack, health, armor;
+        public float aggroRange, atkRange, atkSpeed, atkDmg, health, armor;
     }
 }

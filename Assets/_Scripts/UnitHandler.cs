@@ -24,25 +24,19 @@ public class UnitHandler : MonoBehaviour
         pUnitLayer = LayerMask.NameToLayer("Enemy Units");
         eUnitLayer = LayerMask.NameToLayer("Player Units");
         GameObject unit = Instantiate(_unit.unitPrefab, transform.position, Quaternion.identity, spawnPoint);
-        initializeUnitStats(unit, _unit.unitStats);
+        initializeUnitStats(unit.GetComponent<Unit>(), _unit.unitStats);
         Vector3 new_position = new Vector3(transform.position.x + 2, transform.position.y, transform.position.z);
         unit.transform.position = new_position;
         GameObject unit2 = Instantiate(_unit.unitPrefab, transform.position, Quaternion.identity, spawnPoint);
-        initializeUnitStats(unit2, _unit.unitStats);
+        initializeUnitStats(unit2.GetComponent<Unit>(), _unit.unitStats);
 
         LayerMask layerToSet = isPlayer ? pUnitLayer : eUnitLayer;
         unit.layer = layerToSet;
         unit2.layer = layerToSet;
     }
 
-    void initializeUnitStats(GameObject gameObj, UnitStatTypes.Base stats)
+    void initializeUnitStats(Unit unit, UnitStatTypes.Base stats)
     {
-        Unit unit = gameObj.GetComponent<Unit>();
-        unit.aggroRange = stats.aggroRange;
-        unit.atkRange = stats.atkRange;
-        unit.attack = stats.attack;
-        unit.health = stats.health;
-        unit.armor = stats.armor;
         unit.stats = stats;
     }
 }
