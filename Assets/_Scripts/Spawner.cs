@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitHandler : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
-    public static UnitHandler instance;
+    public static Spawner instance;
 
     /*
     private void Start()
@@ -15,7 +15,7 @@ public class UnitHandler : MonoBehaviour
 
     public LayerMask pUnitLayer, eUnitLayer;
 
-    public Character _unit;
+    public Character character;
     public Transform spawnPoint;
     public bool isPlayer;
     void Start()
@@ -23,20 +23,21 @@ public class UnitHandler : MonoBehaviour
         instance = this;
         pUnitLayer = LayerMask.NameToLayer("Enemy Units");
         eUnitLayer = LayerMask.NameToLayer("Player Units");
-        GameObject unit = Instantiate(_unit.unitPrefab, transform.position, Quaternion.identity, spawnPoint);
-        initializeUnitStats(unit.GetComponent<Unit>(), _unit.unitStats);
+        GameObject unit = Instantiate(character.unitPrefab, transform.position, Quaternion.identity, spawnPoint);
+        initializeUnitStats(unit.GetComponent<Unit>(), character);
         Vector3 new_position = new Vector3(transform.position.x + 2, transform.position.y, transform.position.z);
         unit.transform.position = new_position;
-        GameObject unit2 = Instantiate(_unit.unitPrefab, transform.position, Quaternion.identity, spawnPoint);
-        initializeUnitStats(unit2.GetComponent<Unit>(), _unit.unitStats);
+        GameObject unit2 = Instantiate(character.unitPrefab, transform.position, Quaternion.identity, spawnPoint);
+        initializeUnitStats(unit2.GetComponent<Unit>(), character);
 
         LayerMask layerToSet = isPlayer ? pUnitLayer : eUnitLayer;
         unit.layer = layerToSet;
         unit2.layer = layerToSet;
     }
 
-    void initializeUnitStats(Unit unit, UnitStatTypes.Base stats)
+    void initializeUnitStats(Unit unit, Character character)
     {
-        unit.stats = stats;
+        unit.stats = character.unitStats;
+        unit.isPlayer = character.isPlayerUnit;
     }
 }

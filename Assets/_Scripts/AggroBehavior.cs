@@ -22,7 +22,8 @@ public class AggroBehavior : MonoBehaviour
     private void Start()
     {
         navAgent = gameObject.GetComponent<NavMeshAgent>();
-        unitStats = gameObject.GetComponent<Unit>().stats;
+        Unit unit = gameObject.GetComponent<Unit>();
+        unitStats = unit.stats;
     }
 
     private void Update()
@@ -52,7 +53,7 @@ public class AggroBehavior : MonoBehaviour
         rangeColliders = Physics.OverlapSphere(transform.position, 100);
         for (int i = 0; i < rangeColliders.Length; i++)
         {
-            if (rangeColliders[i].gameObject.layer == UnitHandler.instance.eUnitLayer)
+            if (rangeColliders[i].gameObject.layer == Spawner.instance.eUnitLayer)
             {
                 aggroTarget = rangeColliders[i].gameObject.transform;
                 aggroUnit = aggroTarget.transform.GetComponent<Unit>();

@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class Unit : MonoBehaviour
 {
     public UnitStatTypes.Base stats;
+    public bool isPlayer;
 
     public void UpdateHealth(float delta)
     {

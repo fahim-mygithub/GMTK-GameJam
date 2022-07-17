@@ -364,7 +364,7 @@ MonoBehaviour:
   eUnitLayer:
     serializedVersion: 2
     m_Bits: 512
-  _unit: {fileID: 11400000, guid: a2a9708d6446c40428aee9730d45a7c0, type: 2}
+  character: {fileID: 11400000, guid: a2a9708d6446c40428aee9730d45a7c0, type: 2}
   spawnPoint: {fileID: 513084681}
   isPlayer: 1
 --- !u!1 &603979757
@@ -527,7 +527,7 @@ MonoBehaviour:
   eUnitLayer:
     serializedVersion: 2
     m_Bits: 512
-  _unit: {fileID: 11400000, guid: 8ea01db85849f3d4fb09fc1d807ae52f, type: 2}
+  character: {fileID: 11400000, guid: 8ea01db85849f3d4fb09fc1d807ae52f, type: 2}
   spawnPoint: {fileID: 708205240}
   isPlayer: 1
 --- !u!1 &765519376
@@ -815,7 +815,7 @@ MonoBehaviour:
   eUnitLayer:
     serializedVersion: 2
     m_Bits: 512
-  _unit: {fileID: 11400000, guid: aa283ffa3affdc944ac28fcc23f3b066, type: 2}
+  character: {fileID: 11400000, guid: aa283ffa3affdc944ac28fcc23f3b066, type: 2}
   spawnPoint: {fileID: 1019112190}
   isPlayer: 0
 --- !u!1 &1318859840
@@ -867,7 +867,7 @@ MonoBehaviour:
   eUnitLayer:
     serializedVersion: 2
     m_Bits: 512
-  _unit: {fileID: 11400000, guid: ffc32129dd295c241989ec3c9e525fe9, type: 2}
+  character: {fileID: 11400000, guid: ffc32129dd295c241989ec3c9e525fe9, type: 2}
   spawnPoint: {fileID: 1318859841}
   isPlayer: 0
 --- !u!1 &1742149362
@@ -919,7 +919,7 @@ MonoBehaviour:
   eUnitLayer:
     serializedVersion: 2
     m_Bits: 512
-  _unit: {fileID: 11400000, guid: dd01644de2bd7f349a950177d9413a62, type: 2}
+  character: {fileID: 11400000, guid: dd01644de2bd7f349a950177d9413a62, type: 2}
   spawnPoint: {fileID: 1742149363}
   isPlayer: 0
 --- !u!1 &1926575618
@@ -971,7 +971,7 @@ MonoBehaviour:
   eUnitLayer:
     serializedVersion: 2
     m_Bits: 512
-  _unit: {fileID: 11400000, guid: 4c424d5cbd0ee8f4884e7fd385365559, type: 2}
+  character: {fileID: 11400000, guid: 4c424d5cbd0ee8f4884e7fd385365559, type: 2}
   spawnPoint: {fileID: 1926575619}
   isPlayer: 1
 --- !u!1 &1931733442
