@@ -7,12 +7,13 @@ using UnityEngine.AI;
 public class Unit : MonoBehaviour
 {
     public UnitStatTypes.Base stats;
+    public float health;
     public bool isPlayer;
 
     public void UpdateHealth(float delta)
     {
-        stats.health += delta;
-        if (stats.health <= 0)
+        health += delta;
+        if (health <= 0)
         {
             Die();
         }

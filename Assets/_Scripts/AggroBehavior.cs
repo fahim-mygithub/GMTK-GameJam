@@ -9,26 +9,30 @@ public class AggroBehavior : MonoBehaviour
     private NavMeshAgent navAgent;
     private Collider[] rangeColliders;
 
+    LayerMask aggroLayer;
     private Transform aggroTarget;
     private Unit aggroUnit;
     private bool hasAggro = false;
 
-    private float distance;
+    private float distance = float.MaxValue;
 
     private UnitStatTypes.Base unitStats;
 
     private float atkCooldown;
+    private float aggroRange;
 
     private void Start()
     {
         navAgent = gameObject.GetComponent<NavMeshAgent>();
         Unit unit = gameObject.GetComponent<Unit>();
         unitStats = unit.stats;
+        aggroLayer = unit.isPlayer ? Spawner.instance.eUnitLayer : Spawner.instance.pUnitLayer;
     }
 
     private void Update()
     {
         atkCooldown -= Time.deltaTime;
+        aggroRange += Time.deltaTime;
         if (!hasAggro)
         {
             CheckForEnenmyTargets();
@@ -50,10 +54,10 @@ public class AggroBehavior : MonoBehaviour
 
     private void CheckForEnenmyTargets()
     {
-        rangeColliders = Physics.OverlapSphere(transform.position, 100);
+        rangeColliders = Physics.OverlapSphere(transform.position, aggroRange * 10);
         for (int i = 0; i < rangeColliders.Length; i++)
         {
-            if (rangeColliders[i].gameObject.layer == Spawner.instance.eUnitLayer)
+            if (rangeColliders[i].gameObject.layer == aggroLayer)
             {
                 aggroTarget = rangeColliders[i].gameObject.transform;
                 aggroUnit = aggroTarget.transform.GetComponent<Unit>();
