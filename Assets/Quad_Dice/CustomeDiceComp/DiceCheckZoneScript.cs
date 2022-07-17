@@ -25,6 +25,7 @@ public class DiceCheckZoneScript : MonoBehaviour
         {
 
             ann = true;
+            Debug.Log(col.gameObject.name);
         }
         //if (diceVelocity.x == 0f && diceVelocity.y == 0f && diceVelocity.z == 0f && !ann) 
         //{
