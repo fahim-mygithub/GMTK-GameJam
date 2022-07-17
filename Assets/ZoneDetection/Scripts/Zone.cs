@@ -16,10 +16,15 @@ public class Zone : MonoBehaviour
         if ((other.tag == "Die" || other.tag == "Dice") && !other.GetComponent<Rigidbody>().isKinematic)
         {
             D6Dice d6 = other.GetComponent<D6Dice>();
+            if(d6 == null)
+            {
+                return;
+            }
             if (other.GetComponent<Rigidbody>().velocity.magnitude < 0.5f && !d6.PerformedAction)
             {
                 transform.parent.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
-                Debug.Log("Turn White");
+                //d6.FindTopside();
+                Debug.Log(d6.FindTopside().name);
                 d6.PerformedAction = true;
             }
         }
