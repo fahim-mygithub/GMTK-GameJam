@@ -10,55 +10,77 @@ public class AggroBehavior : MonoBehaviour
     private Collider[] rangeColliders;
     
     private Transform aggroTarget;
+    private Unit aggroUnit;
     private bool hasAggro = false;
 
     private float distance;
 
     private UnitStatTypes.Base unitStats;
 
+    private float atkCooldown;
+
     private void Start()
     {
         navAgent = gameObject.GetComponent<NavMeshAgent>();
-        unitStats = gameObject.GetComponent<UnitStatTypes.Base>();
+        unitStats = gameObject.GetComponent<Unit>().stats;
     }
 
     private void Update()
     {
+        atkCooldown -= Time.deltaTime;
         if (!hasAggro)
         {
             CheckForEnenmyTargets();
         } else
         {
-            moveToAggroTarget();
+            Attack();
+            MoveToAggroTarget();
+        }
+    }
+
+    private void Attack()
+    {
+        if (atkCooldown <= 0 && distance <= 1.5f)
+        {
+            aggroUnit.UpdateHealth(-1);
+            atkCooldown = 1; 
         }
     }
 
     private void CheckForEnenmyTargets()
     {
         rangeColliders = Physics.OverlapSphere(transform.position, 100);
-        print("Test");
         for (int i = 0; i < rangeColliders.Length; i++)
         {
             if (rangeColliders[i].gameObject.layer == UnitHandler.instance.eUnitLayer)
             {
                 aggroTarget = rangeColliders[i].gameObject.transform;
+                aggroUnit = aggroTarget.transform.GetComponent<Unit>();
                 hasAggro = true;
                 break;
             }
         }
     }
 
-    private void moveToAggroTarget()
+    private void MoveToAggroTarget()
     {
-        distance = Vector3.Distance(aggroTarget.position, transform.position);
-        // navAgent.stoppingDistance = (unitStats.atkRange + 1);
-        navAgent.stoppingDistance = (1.5f);
-        print("Printing unit stats!");
-        // print(unitStats);
-        // if (distance <= unitStats.aggroRange)
-        if (distance <= 100)
+        if (aggroTarget == null)
         {
-            navAgent.SetDestination(aggroTarget.position);
+            navAgent.SetDestination(transform.position);
+            hasAggro = false;
+        } else
+        {
+            distance = Vector3.Distance(aggroTarget.position, transform.position);
+            // navAgent.stoppingDistance = (unitStats.atkRange + 1);
+            navAgent.stoppingDistance = (1.5f);
+            print("Printing unit stats!");
+            // print(unitStats);
+            // if (distance <= unitStats.aggroRange)
+            if (distance <= 100)
+            {
+                navAgent.SetDestination(aggroTarget.position);
+            }
         }
+        
     }
 }
