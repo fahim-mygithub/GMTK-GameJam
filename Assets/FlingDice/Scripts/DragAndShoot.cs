@@ -52,6 +52,7 @@ public class DragAndShoot : MonoBehaviour
         rb.AddTorque(transform.up * shootpowerRotation, ForceMode.Impulse);
         rb.AddTorque(transform.right * shootpowerRotation, ForceMode.Impulse);
         isShoot = true;
+        ForceField.currentlyTrapping = false;
 
     }
 }

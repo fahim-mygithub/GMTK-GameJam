@@ -18,7 +18,7 @@ public class SpawnDice : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("Spawn");    
+            Debug.Log("Spawn " + spawnItem.name);    
             Spawn();
         }
     }
@@ -26,9 +26,10 @@ public class SpawnDice : MonoBehaviour
 
     public void Spawn()
     {
-        Debug.Log(GameManager.a_image.sprite.name
-            + " / " + GameManager.b_image.sprite.name
-            + " / " + GameManager.c_image.sprite.name);
+
+        //Debug.Log(GameManager.a_image.sprite.name
+        //    + " / " + GameManager.b_image.sprite.name
+        //    + " / " + GameManager.c_image.sprite.name);
         if (GameManager.total_a_units != 0)
         {
             MakeDice(GameManager.a_image.sprite.name);
