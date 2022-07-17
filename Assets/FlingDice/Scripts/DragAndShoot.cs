@@ -6,6 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class DragAndShoot : MonoBehaviour
 {
+    public float shootpowerRotation = 5.0f;
+    public float forceMultiplier = 4.0f;
     private Vector3 mousePressDownPos;
     private Vector3 mouseReleasePos;
 
@@ -39,8 +41,6 @@ public class DragAndShoot : MonoBehaviour
         Shoot(mouseReleasePos-mousePressDownPos);
     }
 
-    private float forceMultiplier = 3;
-
     void Shoot(Vector3 Force)
     {
         if (isShoot)
@@ -48,6 +48,8 @@ public class DragAndShoot : MonoBehaviour
             return;
         }
         rb.AddForce(new Vector3(Force.x, Force.y, Force.magnitude) * forceMultiplier);
+        rb.AddTorque(transform.up * shootpowerRotation, ForceMode.Impulse);
+        rb.AddTorque(transform.right * shootpowerRotation, ForceMode.Impulse);
         isShoot = true;
     }
 }
