@@ -6,13 +6,18 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public int total_starting_units = 3;
-    public int total_a_units = 0;
-    public int total_b_units = 0;
-    public int total_c_units = 0;
+    public static int total_a_units = 0;
+    public static int total_b_units = 0;
+    public static int total_c_units = 0;
     public Text total_starting_units_txt;
     public Text total_a_unit_txt;
     public Text total_b_unit_txt;
     public Text total_c_unit_txt;
+
+
+    public static Image a_image;
+    public static Image b_image;
+    public static Image c_image;
 
     public void Start()
     {

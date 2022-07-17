@@ -891,7 +891,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level1
+          m_StringArgument: ShipMapMvp
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &521347940
@@ -1709,6 +1709,7 @@ GameObject:
   m_Component:
   - component: {fileID: 939963674}
   - component: {fileID: 939963673}
+  - component: {fileID: 939963675}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1729,9 +1730,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   total_starting_units: 3
-  total_a_units: 0
-  total_b_units: 0
-  total_c_units: 0
   total_starting_units_txt: {fileID: 1131581937}
   total_a_unit_txt: {fileID: 755824007}
   total_b_unit_txt: {fileID: 532995256}
@@ -1750,6 +1748,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &939963675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939963672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 415a918744798c44dbc94a3e8962b8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &994160966
 GameObject:
   m_ObjectHideFlags: 0
