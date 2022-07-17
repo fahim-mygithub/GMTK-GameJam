@@ -57,7 +57,7 @@ public class AggroBehavior : MonoBehaviour
         rangeColliders = Physics.OverlapSphere(transform.position, aggroRange * 10);
         for (int i = 0; i < rangeColliders.Length; i++)
         {
-            if (rangeColliders[i].gameObject.layer == aggroLayer)
+            if (rangeColliders[i].gameObject.layer == aggroLayer)   //Doesn't resolve to true
             {
                 aggroTarget = rangeColliders[i].gameObject.transform;
                 aggroUnit = aggroTarget.transform.GetComponent<Unit>();
