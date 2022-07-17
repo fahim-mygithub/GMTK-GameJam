@@ -12,18 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/DeckBuilder.unity
     guid: a6f58de49592d86419b9b0b85ea94bbe
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
-    guid: e1a3874c7306bbe4e8fbf75829288792
-  - enabled: 1
-    path: Assets/Quad_Dice/scenes/Demo/demo.unity
-    guid: 9bffaf85fa8153c4ba4e72b19277f390
-  - enabled: 1
-    path: Assets/Scenes/PullDiceAndSpawnTest.unity
-    guid: c292bd538bf36d745b37d5d111e99393
-  - enabled: 1
     path: Assets/Scenes/ShipMapMvp.unity
     guid: 8204ab7896e76d541a8b79635aeda994
-  - enabled: 1
-    path: Assets/Scenes/ShipCopy.unity
-    guid: 34b7842727f86e94b83935c40c9e4a82
   m_configObjects: {}
