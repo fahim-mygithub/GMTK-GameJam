@@ -19,11 +19,16 @@ public class GameManager : MonoBehaviour
     public static Image b_image;
     public static Image c_image;
 
+
+    public static bool canSpawn;
+
     public void Start()
     {
         update_unit_txt("a");
         update_unit_txt("b");
         update_unit_txt("c");
+        canSpawn = true;
+
     }
 
     public void add_unit(string unit_type)

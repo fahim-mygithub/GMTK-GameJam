@@ -16,10 +16,16 @@ public class SpawnDice : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    Debug.Log("Spawn " + spawnItem.name);    
+        //    Spawn();
+        //}
+        if (GameManager.canSpawn)
         {
-            Debug.Log("Spawn " + spawnItem.name);    
+            Debug.Log("Spawn " + spawnItem.name);
             Spawn();
+            GameManager.canSpawn = false;
         }
     }
 
