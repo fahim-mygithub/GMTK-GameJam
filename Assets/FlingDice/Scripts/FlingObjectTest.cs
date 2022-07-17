@@ -10,6 +10,7 @@ public class FlingObjectTest : MonoBehaviour
     public float lineLength = 4f;
     public LineRenderer line;
     public float shootpower = 30f;
+    public float shootpowerRotation = 5f;
 
     // Update is called once per frame
     void Update()
@@ -33,6 +34,8 @@ public class FlingObjectTest : MonoBehaviour
         {
             ball.isKinematic = false;
             ball.velocity = transform.forward * shootpower;
+            ball.AddTorque(transform.up * shootpowerRotation, ForceMode.Impulse);
+            ball.AddTorque(transform.right * shootpowerRotation, ForceMode.Impulse);
             line.gameObject.SetActive(false);
         }
 
