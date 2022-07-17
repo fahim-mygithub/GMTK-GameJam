@@ -22,7 +22,7 @@ public class Zone : MonoBehaviour
             {
                 return;
             }
-            if (other.GetComponent<Rigidbody>().velocity.magnitude < 1.5f && !d6.PerformedAction)
+            if (other.GetComponent<Rigidbody>().velocity.magnitude < 2f && !d6.PerformedAction)
             {
                 //kill momentum
                 other.GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -63,6 +63,7 @@ public class Zone : MonoBehaviour
         Destroy(objToDestroy, 3);
         yield return new WaitForSeconds(3);
         transform.parent.gameObject.GetComponent<Renderer>().material.SetColor("_Color", original_color);
+        GameManager.canSpawn = true;
     }
 
     void OnTriggerEnter(Collider other)
