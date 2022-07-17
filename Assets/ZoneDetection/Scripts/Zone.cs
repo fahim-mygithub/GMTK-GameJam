@@ -37,6 +37,10 @@ public class Zone : MonoBehaviour
                 Debug.Log(d6.FindTopside().name);
                 d6.PerformedAction = true;
                 ForceField.currentlyTrapping = false;
+
+                //TLDR for coroutine:
+                //It lets us wait 3 seconds before reverting the color back to normal
+                //WaitForSeconds function must be inside of a coroutine to work
                 StartCoroutine(CleanupDice(other.gameObject));
             }
         }
