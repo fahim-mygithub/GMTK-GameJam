@@ -1,8 +1,11 @@
 fileFormatVersion: 2
-guid: 0900ca84adafb4148a2c60c593a3a10f
+guid: 3bff7ed0a4058fa47a96623f1678cbee
 ModelImporter:
   serializedVersion: 19301
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -827764280114752141
+    second: SM_OrangeShip_01|SM_OrangeShip_01Action
   externalObjects: {}
   materials:
     materialImportMode: 1
