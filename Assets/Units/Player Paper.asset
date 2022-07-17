@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerUnit: 0
   unitStats:
-    cost: 0
     aggroRange: 100
-    atkRange: 3
-    attack: 1
+    atkRange: 2
+    atkSpeed: 1
+    atkDmg: 1
     health: 10
     armor: 0
   unitPrefab: {fileID: 6510427241696844334, guid: 92512931eab6e5e44bfac2854b2d4143,

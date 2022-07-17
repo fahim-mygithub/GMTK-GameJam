@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b27573ffae584954b856fe9245c0dbe6, type: 3}
-  m_Name: Player Paper
+  m_Name: Enemy Paper
   m_EditorClassIdentifier: 
-  isPlayerUnit: 0
+  isPlayerUnit: 1
   unitStats:
-    cost: 0
     aggroRange: 100
-    atkRange: 3
-    attack: 1
+    atkRange: 2
+    atkSpeed: 1
+    atkDmg: 1
     health: 10
     armor: 0
-  unitPrefab: {fileID: 6510427241696844334, guid: 92512931eab6e5e44bfac2854b2d4143,
+  unitPrefab: {fileID: 5742835813446727775, guid: f52607acf3b37b443afd84545b1ad616,
     type: 3}
   type: 1

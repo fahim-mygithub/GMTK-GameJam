@@ -142,8 +142,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24729b818924c2844a66898122a08010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aggroRange: 0
-  atkRange: 0
-  attack: 0
   health: 0
-  armor: 0
+  stats:
+    aggroRange: 10
+    atkRange: 2
+    atkSpeed: 1
+    atkDmg: 1
+    health: 10
+    armor: 0
