@@ -10,6 +10,10 @@ public class Unit : MonoBehaviour
     public float health;
     public bool isPlayer;
 
+    public Color kalm;
+    public Color hunt;
+    public Color atak;
+
     public void UpdateHealth(float delta)
     {
         health += delta;

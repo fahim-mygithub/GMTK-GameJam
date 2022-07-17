@@ -21,12 +21,24 @@ public class AggroBehavior : MonoBehaviour
     private float atkCooldown;
     private float aggroRange;
 
+    private Renderer renderer;
+    private Color kalm;
+    private Color hunt;
+    private Color atak;
+
     private void Start()
     {
         navAgent = gameObject.GetComponent<NavMeshAgent>();
         Unit unit = gameObject.GetComponent<Unit>();
         unitStats = unit.stats;
         aggroLayer = unit.isPlayer ? Spawner.instance.eUnitLayer : Spawner.instance.pUnitLayer;
+
+        kalm = unit.kalm;
+        hunt = unit.hunt;
+        atak = unit.atak;
+        
+        renderer = gameObject.GetComponent<Renderer>();
+        renderer.material.SetColor("_Color", kalm);
     }
 
     private void Update()
@@ -36,6 +48,7 @@ public class AggroBehavior : MonoBehaviour
         if (!hasAggro)
         {
             CheckForEnenmyTargets();
+            renderer.material.SetColor("_Color", kalm);
         } else
         {
             Attack();
@@ -45,10 +58,18 @@ public class AggroBehavior : MonoBehaviour
 
     private void Attack()
     {
-        if (atkCooldown <= 0 && distance <= unitStats.atkRange)
+        if (distance <= unitStats.atkRange + 1)
         {
-            aggroUnit.UpdateHealth(-unitStats.atkDmg);
-            atkCooldown = unitStats.atkSpeed; 
+            renderer.material.SetColor("_Color", atak);
+            if (atkCooldown <= 0 && distance <= unitStats.atkRange)
+            {
+                aggroUnit.UpdateHealth(-unitStats.atkDmg);
+                atkCooldown = unitStats.atkSpeed;
+            }
+        }
+         else
+        {
+            renderer.material.SetColor("_Color", hunt);
         }
     }
 
@@ -73,6 +94,7 @@ public class AggroBehavior : MonoBehaviour
         {
             navAgent.SetDestination(transform.position);
             hasAggro = false;
+            aggroRange = aggroRange / 4;
         } else
         {
             distance = Vector3.Distance(aggroTarget.position, transform.position);
