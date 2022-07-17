@@ -8,7 +8,7 @@ public class AggroBehavior : MonoBehaviour
 {
     private NavMeshAgent navAgent;
     private Collider[] rangeColliders;
-    
+
     private Transform aggroTarget;
     private Unit aggroUnit;
     private bool hasAggro = false;
@@ -72,11 +72,7 @@ public class AggroBehavior : MonoBehaviour
         {
             distance = Vector3.Distance(aggroTarget.position, transform.position);
             navAgent.stoppingDistance = (unitStats.atkRange);
-            if (distance <= 100)
-            {
-                navAgent.SetDestination(aggroTarget.position);
-            }
+            navAgent.SetDestination(aggroTarget.position);
         }
-        
     }
 }
