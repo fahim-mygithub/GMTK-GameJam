@@ -26,6 +26,7 @@ public class DrawTrajectory : MonoBehaviour
 
     public void UpdateTrajectory(Vector3 forceVector, Rigidbody rigidbody, Vector3 startingPoint)
     {
+        Debug.Log("Update Trajectory");
         Vector3 velocity = (forceVector / rigidbody.mass) * Time.fixedDeltaTime;
         float FlightDuration = (2 * velocity.y) / Physics.gravity.y;
 

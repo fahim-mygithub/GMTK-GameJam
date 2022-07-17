@@ -66,10 +66,10 @@ public class Obstacles : MonoBehaviour
             new Vector3(transPos.x + .01f, transPos.y, transPos.z);
         myTransform.position = leftMove;
 
-        Vector3 transEAngle = myTransform.eulerAngles;
-        Vector3 clockwiseRotate =
-            new Vector3(transEAngle.x, transEAngle.y, transEAngle.z - .5f);
-        myTransform.eulerAngles = clockwiseRotate;
+        //Vector3 transEAngle = myTransform.eulerAngles;
+        //Vector3 clockwiseRotate =
+        //    new Vector3(transEAngle.x, transEAngle.y, transEAngle.z - .5f);
+        //myTransform.eulerAngles = clockwiseRotate;
     }
     //hastily copied and reversed :^)
     private void MoveRight()
@@ -79,10 +79,10 @@ public class Obstacles : MonoBehaviour
             new Vector3(transPos.x - .01f, transPos.y, transPos.z);
         myTransform.position = leftMove;
 
-        Vector3 transEAngle = myTransform.eulerAngles;
-        Vector3 clockwiseRotate =
-            new Vector3(transEAngle.x, transEAngle.y, transEAngle.z + .5f);
-        myTransform.eulerAngles = clockwiseRotate;
+        //Vector3 transEAngle = myTransform.eulerAngles;
+        //Vector3 clockwiseRotate =
+        //    new Vector3(transEAngle.x, transEAngle.y, transEAngle.z + .5f);
+        //myTransform.eulerAngles = clockwiseRotate;
     }
 
 
