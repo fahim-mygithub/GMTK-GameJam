@@ -59,6 +59,7 @@ public class SpawnDice : MonoBehaviour
         Material diceMat = Resources.Load("Materials/d6/" + diceType, typeof(Material)) as Material;
         objMat.material = diceMat;
         
+        
 
 
         Rigidbody rb = newObj.GetComponent<Rigidbody>();
