@@ -52,5 +52,9 @@ public class DragAndShoot : MonoBehaviour
         rb.AddTorque(transform.up * shootpowerRotation, ForceMode.Impulse);
         rb.AddTorque(transform.right * shootpowerRotation, ForceMode.Impulse);
         isShoot = true;
+
+        GameObject oneWayWall = GameObject.Find("OneWayWall");
+        MeshRenderer wallMeshRenderer = oneWayWall.GetComponent<MeshRenderer>();
+        wallMeshRenderer.enabled = false;
     }
 }
