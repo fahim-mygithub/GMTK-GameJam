@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class D6Dice : MonoBehaviour
 {
+
     [SerializeField]
     private Transform side1;
     [SerializeField]
@@ -27,6 +28,10 @@ public class D6Dice : MonoBehaviour
 
     public Vector3 DiceVelocity { get => diceVelocity; set => diceVelocity = value; }
 
+
+    private bool performedAction;
+    public bool PerformedAction { get => performedAction; set => performedAction = value; }
+
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
@@ -43,6 +48,8 @@ public class D6Dice : MonoBehaviour
 
         //assign top to a random side
         top = side1;
+
+        performedAction = false;
 
 
 

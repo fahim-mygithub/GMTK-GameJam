@@ -16,7 +16,7 @@ public class FlingObjectTest : MonoBehaviour
     void Update()
     {
         transform.position = ball.position;
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && gameObject.tag == "Die")
         {
             ball.isKinematic = true;
             xroat += Input.GetAxis("Mouse X") * rotatespeed;
@@ -30,13 +30,14 @@ public class FlingObjectTest : MonoBehaviour
                 yroat = -35f;
             }
         }
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && gameObject.tag == "Die")
         {
             ball.isKinematic = false;
             ball.velocity = transform.forward * shootpower;
             ball.AddTorque(transform.up * shootpowerRotation, ForceMode.Impulse);
             ball.AddTorque(transform.right * shootpowerRotation, ForceMode.Impulse);
             line.gameObject.SetActive(false);
+            gameObject.tag = "Dice";
         }
 
     }

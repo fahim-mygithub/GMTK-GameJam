@@ -13,18 +13,28 @@ public class Zone : MonoBehaviour
     }
     void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Die" && !other.GetComponent<Rigidbody>().isKinematic)
+        if ((other.tag == "Die" || other.tag == "Dice") && !other.GetComponent<Rigidbody>().isKinematic)
         {
-            if (other.GetComponent<Rigidbody>().velocity.magnitude < 0.5f)
+            D6Dice d6 = other.GetComponent<D6Dice>();
+            if (other.GetComponent<Rigidbody>().velocity.magnitude < 0.5f && !d6.PerformedAction)
             {
                 transform.parent.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+                Debug.Log("Turn White");
+                d6.PerformedAction = true;
             }
+        }
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Die")
+        {
+            Debug.Log("Ping!");
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Die")
+        if (other.tag == "Die" || other.tag == "Dice")
         {
             transform.parent.gameObject.GetComponent<Renderer>().material.SetColor("_Color", original_color);
         }
