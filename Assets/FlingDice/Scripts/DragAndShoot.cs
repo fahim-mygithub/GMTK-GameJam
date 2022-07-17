@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class DragAndShoot : MonoBehaviour
 {
-    public float shootpowerRotation = 5.0f;
+    public float shootpowerRotation = 10.0f;
     public float forceMultiplier = 4.0f;
     private Vector3 mousePressDownPos;
     private Vector3 mouseReleasePos;
